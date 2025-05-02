@@ -1,0 +1,55 @@
+           BUBBLE SORT
+
+#include<stdio.h>
+void swap(int *a,int *b)
+{
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+
+void bubble_sort(int arr[],int n)
+{
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=0;j<n-1-i;j++)
+        {
+            if(arr[j]>arr[j+1])
+            swap(&arr[j],&arr[j+1]);
+        }
+    }
+}
+
+void display_array(int arr[],int size)
+{
+    printf("\nSorted Array: ");
+    for(int i=0;i<size;i++)
+    printf("%d ",arr[i]);
+    printf("\n");
+}
+
+int main()
+{
+    int n;
+    printf("Enter No.Of. Array Elements : ");
+    scanf("%d",&n);
+    
+    int arr[n];
+    printf("\nEnter Array Elements : ");
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    bubble_sort(arr,n);
+    display_array(arr,n);
+    
+    return 0;
+}
+
+OUTPUT:
+
+Enter No.Of. Array Elements : 5
+
+Enter Array Elements : 52 12 78 42 14
+
+Sorted Array: 12 14 42 52 78 
+
+
