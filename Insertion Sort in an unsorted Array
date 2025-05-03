@@ -1,0 +1,64 @@
+                   INSERTION SORT
+
+#include<stdio.h>
+void swap(int *a,int *b)
+{
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+}
+
+void  insertion_sort(int arr[],int n)
+{
+    for(int i=1;i<n;i++)
+    {
+        for(int j=i;j>0;j--)
+        {
+            if(arr[j]<arr[j-1])
+            swap(&arr[j],&arr[j-1]);
+            else
+              break;
+        }
+    }
+}
+
+void display_array(int arr[],int size)
+{
+    printf("\nSorted Array: ");
+    for(int i=0;i<size;i++)
+    printf("%d ",arr[i]);
+    printf("\n");
+}
+
+int main()
+{
+    int n;
+    printf("Enter No.Of. Array Elements : ");
+    scanf("%d",&n);
+    
+    if(n<=0)
+    {
+    printf("\nEnter a valid Array Size");
+    return 0;
+    }
+    
+    int arr[n];
+    printf("\nEnter Array Elements : ");
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    insertion_sort(arr,n);
+    display_array(arr,n);
+    
+    return 0;
+}
+
+OUTPUT:
+
+
+Enter No.Of. Array Elements : 5
+
+Enter Array Elements : 32 22 78 52 11
+
+Sorted Array: 11 22 32 52 78 
+
+
