@@ -1,0 +1,70 @@
+              SELECTION SORT
+
+#include<stdio.h>
+void swap(int *a,int *b)
+{
+	int temp=*a;
+	*a=*b;
+	*b=temp;
+}
+
+void  selection_sort(int arr[],int n)
+{
+	for(int i=0; i<n-1; i++)
+	{
+		int min=i;
+
+		for(int j=i+1; j<n; j++)
+		{
+			if(arr[j]<arr[min])
+				min=j;
+		}
+		if(min!=i)
+			swap(&arr[i],&arr[min]);
+	}
+}
+
+void display_array(int arr[],int size)
+{
+
+	for(int i=0; i<size; i++)
+		printf("%d ",arr[i]);
+	printf("\n");
+}
+
+int main()
+{
+	int n;
+	printf("Enter No.Of. Array Elements : ");
+	scanf("%d",&n);
+
+	if(n<=0)
+	{
+		printf("\nEnter a valid Array Size");
+		return 0;
+	}
+
+	int arr[n];
+	printf("\nEnter Array Elements : ");
+	for(int i=0; i<n; i++)
+		scanf("%d",&arr[i]);
+	printf("\nOriginal Array : ");
+	display_array(arr,n);
+	selection_sort(arr,n);
+	printf("\nSorted Array: ");
+	display_array(arr,n);
+
+	return 0;
+}
+
+OUTPUT:
+
+Enter No.Of. Array Elements : 5
+
+Enter Array Elements : 87 13 63 43 10
+
+Original Array : 87 13 63 43 10 
+
+Sorted Array: 10 13 43 63 87 
+
+
